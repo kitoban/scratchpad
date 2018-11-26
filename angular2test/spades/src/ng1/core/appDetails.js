@@ -2,10 +2,10 @@
 
 function appDetails() {
   return {
-    version: '1.0.0.0',
-    edition: '1.0.0.0',
+    version: '5.1.0.0',
+    edition: '5.1.0.0',
     customerName: '',
-    customerVersion: '1.0.0.0',
+    customerVersion: '5.1.0.0',
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { APP_DETAILS } from '../../ng1/core/appDetails';
+import { APP_DETAILS } from './AppDetails';
 
 @Component( {
   selector: 'app-page-footer',
@@ -10,7 +10,7 @@ import { APP_DETAILS } from '../../ng1/core/appDetails';
 export class AppPageFooterComponent {
 
   year = new Date().getFullYear();
-  
-  constructor( @Inject(APP_DETAILS) private appDetails: any ) {
+
+  constructor( @Inject( APP_DETAILS ) private appDetails: any ) {
   }
 }

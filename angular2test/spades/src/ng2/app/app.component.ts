@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 @Component( {
@@ -7,12 +7,13 @@ import { UpgradeModule } from '@angular/upgrade/static';
   styleUrls: ['./app.component.less']
 } )
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'app';
 
-  constructor(private upgrade: UpgradeModule) { }
 
-  ngOnInit() {
-    //this.upgrade.bootstrap(document.body, ['ace']);
-  }
+  // constructor(private upgrade: UpgradeModule) { }
+
+  // ngDoBootstrap() {
+  //   this.upgrade.bootstrap(document.body, ['ace']);
+  // }
 }
