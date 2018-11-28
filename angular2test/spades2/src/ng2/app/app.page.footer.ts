@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-//import { APP_DETAILS } from './AppDetails';
+import { Component, Inject, OnInit } from '@angular/core';
+import { AppDetailsService } from './app-details.service';
 
 @Component( {
   selector: 'app-page-footer',
@@ -7,10 +7,16 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./app-page-footer.css']
 } )
 
-export class AppPageFooterComponent {
+export class AppPageFooterComponent implements OnInit {
+
+  public appDetails: any;
 
   year = new Date().getFullYear();
 
-  constructor(  ) {
+  constructor( private appDetailsService: AppDetailsService ) {
+  }
+
+  ngOnInit(): void {
+    this.appDetails = this.appDetailsService.getData();
   }
 }

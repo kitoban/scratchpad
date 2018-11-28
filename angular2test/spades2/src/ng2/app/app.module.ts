@@ -6,7 +6,7 @@ import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from "ng2/app/ng2-demo.component";
 import { AppDetailsService } from './app-details.service';
-//import { AppPageFooterComponent } from './app.page.footer';
+import { AppPageFooterComponent } from './app.page.footer';
 
 declare var angular: any;
 
@@ -27,7 +27,8 @@ angular.module('ace')
 @NgModule({
   declarations: [
     AppComponent,
-    Ng2DemoComponent
+    Ng2DemoComponent,
+    AppPageFooterComponent
   ],
   imports: [
     BrowserModule,
