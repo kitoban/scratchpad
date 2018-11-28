@@ -1,0 +1,19 @@
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-image">Virtual Tabulation&trade;</div>
+    </div>
+    <div class="footer-text">
+      <div class="footer-logo-brand">Configit Ace<sup>&reg;</sup></div>
+      <p>
+        Version {{ appDetails.version }}
+        <span ng-if="appDetails.customerVersion">&mdash; {{ appDetails.customerName }} Version {{
+          appDetails.customerVersion }}</span>
+        <span ng-if="appDetails.licenseStatus === 'DemoLicense'" class="label label-important">Non-production
+          license</span>
+        <span ng-if="appDetails.licenseStatus === 'NotValid'" class="label label-important">No license</span>
+      </p>
+      <p>&copy; Configit A/S 2012 - {{ year }} &mdash; <a href="http://configit.com" target="_blank">configit.com</a></p>
+    </div>
+  </div>
+</footer>
