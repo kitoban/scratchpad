@@ -4,7 +4,7 @@ import { AppDetailsService } from './app-details.service';
 @Component( {
   selector: 'app-page-footer',
   templateUrl: './app-page-footer.html',
-  styleUrls: ['./app-page-footer.css']
+  styleUrls: ['./app-page-footer.less']
 } )
 
 export class AppPageFooterComponent implements OnInit {

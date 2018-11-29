@@ -1,4 +1,111 @@
-<div class="container-fluid">
 
-  abc
+<div ngyn-grid collection="workItems">
+  <index-filters label="Work Items" filter-panel-class="filter-panel-work-items" filter-active="$ctrl.filterActive">
+    <div class="filter-box-container">
+      <div class="filter-box" ng-class="{ 'filter-applied': filters.selected.users.length }">
+          <button type="button" class="btn" ng-click="$ctrl.gotoNew()">
+            <span>New</span>
+          </button>
+        <!-- <multi-select item-template='Client/app/admin/security/users/templates/multiselect-user-template.html' items="filters.options.users"
+          selected-items="filters.selected.users" placeholder-text="{{ filterPlaceholderText( 'User', filters.selected.users ) }}"
+          show-clear-all="true" show-close-button="true" show-selected-count="true" on-selection-changed="ctrl.updateFilters()">
+        </multi-select> -->
+      </div>
+      <div class="filter-box" ng-class="{ 'filter-applied': filters.selected.status.length }">
+        <!-- <multi-select item-template='Client/common/templates/multiselect-item-template.html' items="filters.options.status"
+          selected-items="filters.selected.status" placeholder-text="{{ filterPlaceholderText( 'Status', filters.selected.status ) }}"
+          show-clear-all="true" show-close-button="true" show-selected-count="true" on-selection-changed="ctrl.updateFilters()">
+        </multi-select> -->
+      </div>
+      <div class="blank-filter-slot wide-pageview-only"></div>
+      <div class="blank-filter-slot wide-pageview-only"></div>
+    </div>
+  </index-filters>
+
+  <table class="table table-outer-border table-striped table-no-wrap">
+    <colgroup>
+      <col style="width: 55px" />
+      <col style="width: 60%" />
+      <col style="width: 40%" />
+      <col style="width: 180px" />
+      <col style="width: 120px" />
+    </colgroup>
+    <thead>
+      <tr>
+        <td colspan="5">
+          <div ng-if="$ctrl.security.canPerform( 'CreateWorkItems', true )" class="btn-group">
+            <a class="btn" ng-href="{{ ngynRoute.action( 'new' ) }}">
+              New Work Item
+            </a>
+          </div>
+
+          <div class="toolbar-separator" ng-if="security.canPerform( 'CreateWorkItems', true )"></div>
+
+          <ng-pluralize count="workItems.totalCount" when="{'0': 'No Work Items found', 'one': '{} Work Item found', 'other': '{} Work Items found'}"></ng-pluralize>
+
+          <div class="toolbar-separator" ng-if="workItems.loaded && showResetFilters"></div>
+
+          <a href="javascript:void(0)" ng-if="workItems.loaded && showResetFilters" ng-click="$ctrl.resetFilters()">Reset
+            filters</a>
+
+          <div class="pull-right">
+            <!-- <cs:search></cs:search> -->
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>User</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody search-highlight>
+      <tr ng-repeat="workItem in $ctrl.workItems" row-click="ngynRoute.gotoLink( { action: 'details', workitems_id: workItem.workItemNumber } )">
+
+        <td>
+          {{ workItem.workItemNumber }}
+        </td>
+        <td>
+          <a ng-href="{{ ngynRoute.link( { action: 'details', workitems_id: workItem.workItemNumber } ) }}">
+            {{ workItem.name }}
+          </a>
+
+          <span ng-show="workItem.workItemType.name == 'Resolution'" class="label label-important">Synchronisation
+            Issue</span>
+          <span ng-show="workItem.workItemType.name == 'Investigation'" class="label">Investigation</span>
+
+          <span class="trimmed muted">{{ workItem.description }}</span>
+        </td>
+        <td>
+          <user-info-list users="$ctrl.getUsers( workItem )" highlight-current-user="true"></user-info-list>
+        </td>
+        <td>
+          <i class="{{ statusIcon( workItem.status ) }}"></i>{{ workItem.statusFriendlyName }}
+        </td>
+        <td>
+          <button type="button" class="btn" ng-click="$ctrl.start( workItem )" ng-if="$ctrl.canStart( workItem )">
+            Start
+          </button>
+          <button type="button" class="btn" ng-disabled="!$ctrl.isAssignedTo( workItem )" ng-click="$ctrl.gotoHomePage( workItem )"
+            ng-if="workItem.status != 'New'">
+            <span ng-if="$ctrl.isActive( workItem )">Resume</span>
+            <span ng-if="!$ctrl.isActive( workItem )">View</span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr cs-no-search-results-row span="5"></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5">
+          <!-- <cs:pager></cs:pager> -->
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
 </div>

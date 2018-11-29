@@ -10,6 +10,9 @@ angular.
         when('/wi', {
           template: '<work-item-list></work-item-list>'
         }).
+        when('/wi/new', {
+          templateUrl: "ng1/workitems/new.html"
+        } ).
         when('/ng2-demo', {
           template: '<ng2-demo></ng2-demo>'
         })

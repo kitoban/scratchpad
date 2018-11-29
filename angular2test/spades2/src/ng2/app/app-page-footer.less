@@ -1,4 +1,4 @@
-/* // CSS image replacement
+// CSS image replacement
 // -------------------------
 // Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 .hide-text {
@@ -25,6 +25,7 @@
 // ---------------
 html, body {
   height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
 @footerHeight: 116px;
@@ -65,37 +66,14 @@ html, body {
 //     font-size: 70%;
 //   }
 // }
-*/
-
-
-#footer {
-  padding-bottom: 0;
-  background-color: #232323;
-  color: #9a9a9a;
-  height: 116px;
-  flex-shrink: 0;
-}
-
-#footer.footer-text {
-    line-height: 25px;
-    margin-top: 10px;
-}
 
 .footer-logo-brand {
   display: block;
   width: 227px;
   height: 30px;
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
+  .hide-text();
   background: url( '../../img/logo-text.png' ) top left no-repeat;
-  
-  -webkit-background-size: 227px 30px;
-     -moz-background-size: 227px 30px;
-       -o-background-size: 227px 30px;
-          background-size: 227px 30px;
+  .background-size( 227px 30px );
   margin-bottom: 5px;
 }
 
@@ -103,19 +81,12 @@ html, body {
   display: block;
   width: 268px;
   height: 31px;
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
+  .hide-text();
   margin-top: 10px;
   background: url( '../../img/virtual-tabulation.png' ) top right no-repeat;
-  -webkit-background-size: 268px 31px;
-     -moz-background-size: 268px 31px;
-       -o-background-size: 268px 31px;
-          background-size: 268px 31px;
+  .background-size( 268px 31px );
 }
 
 .footer-inner {
   padding: 10px 40px 0 40px;
-} 
+}

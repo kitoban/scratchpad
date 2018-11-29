@@ -4,5 +4,6 @@
 angular.module('ace', [
   'ngAnimate',
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  'ace.model'
 ]);

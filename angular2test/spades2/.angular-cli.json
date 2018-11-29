@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "migrated"
+    "name": "Spades 2"
   },
   "apps": [
     {
@@ -20,7 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "ng2/styles.css"
+        "ng2/styles.less"
       ],
       "scripts": [],
       "environmentSource": "ng2/environments/environment.ts",
@@ -52,7 +52,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "less",
+    "component": {
+    }
   }
 }

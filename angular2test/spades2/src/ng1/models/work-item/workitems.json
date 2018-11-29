@@ -1,0 +1,139 @@
+[
+  {
+    "name": "alu",
+    "workItemNumber": 3,
+    "branchName": "WorkItem3",
+    "assignedUsers": [
+      {
+        "userId": 32,
+        "user": {
+          "username": "alujan@configit.com",
+          "firstName": "Andrei",
+          "lastName": "Lujan",
+          "jobDescription": "",
+          "emailAddress": "alujan@configit.com",
+          "provider": "Google",
+          "isActive": true,
+          "isSystem": false,
+          "roles": [],
+          "productRangePermissions": [],
+          "productGroupPermissions": [],
+          "id": 32,
+          "markedForDeletion": false
+        },
+        "workItemId": 3,
+        "id": 3,
+        "markedForDeletion": false
+      }
+    ],
+    "defaultScopes": [],
+    "workItemTypeId": 3,
+    "workItemType": {
+      "name": "Standard",
+      "preventPromotion": false,
+      "preventRebase": false,
+      "sortOrder": 1,
+      "id": 3,
+      "markedForDeletion": false
+    },
+    "references": [],
+    "statusFriendlyName": "In Progress",
+    "status": "InProgress",
+    "id": 3,
+    "markedForDeletion": false
+  },
+  {
+    "name": "wi1",
+    "workItemNumber": 2,
+    "branchName": "WorkItem2",
+    "assignedUsers": [
+      {
+        "userId": 62,
+        "user": {
+          "username": "cmillard@configit.com",
+          "firstName": "Colin",
+          "lastName": "Millard",
+          "jobDescription": "",
+          "emailAddress": "cmillard@configit.com",
+          "provider": "Google",
+          "isActive": true,
+          "isSystem": false,
+          "roles": [],
+          "productRangePermissions": [],
+          "productGroupPermissions": [],
+          "id": 62,
+          "markedForDeletion": false
+        },
+        "workItemId": 2,
+        "id": 2,
+        "markedForDeletion": false
+      }
+    ],
+    "defaultScopes": [],
+    "workItemTypeId": 3,
+    "workItemType": {
+      "name": "Standard",
+      "preventPromotion": false,
+      "preventRebase": false,
+      "sortOrder": 1,
+      "id": 3,
+      "markedForDeletion": false
+    },
+    "references": [],
+    "statusFriendlyName": "In Progress",
+    "status": "InProgress",
+    "id": 2,
+    "markedForDeletion": false
+  },
+  {
+    "name": "russell1",
+    "workItemNumber": 1,
+    "branchName": "WorkItem1",
+    "assignedUsers": [
+      {
+        "userId": 217,
+        "user": {
+          "username": "rdocking@configit.com",
+          "firstName": "Russell",
+          "lastName": "Docking",
+          "jobDescription": "",
+          "emailAddress": "rdocking@configit.com",
+          "provider": "Google",
+          "isActive": true,
+          "isSystem": false,
+          "roles": [],
+          "productRangePermissions": [],
+          "productGroupPermissions": [],
+          "id": 217,
+          "markedForDeletion": false
+        },
+        "workItemId": 1,
+        "id": 1,
+        "markedForDeletion": false
+      }
+    ],
+    "defaultScopes": [
+      {
+        "property": "productRangeCode",
+        "value": "X0",
+        "workItemId": 1,
+        "id": 1,
+        "markedForDeletion": false
+      }
+    ],
+    "workItemTypeId": 3,
+    "workItemType": {
+      "name": "Standard",
+      "preventPromotion": false,
+      "preventRebase": false,
+      "sortOrder": 1,
+      "id": 3,
+      "markedForDeletion": false
+    },
+    "references": [],
+    "statusFriendlyName": "In Progress",
+    "status": "InProgress",
+    "id": 1,
+    "markedForDeletion": false
+  }
+]

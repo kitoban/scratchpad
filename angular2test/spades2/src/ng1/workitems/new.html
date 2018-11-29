@@ -1,0 +1,105 @@
+﻿<form class="form-horizontal row-fluid" name="form" ng-controller="WorkItems.NewController">
+  <!-- <cs:entity-form-title-bar entity="workItem" name="Work Item"></cs:entity-form-title-bar>
+  <cs:validation-summary></cs:validation-summary> -->
+
+  <fieldset>
+    <cs:labeled-control label="Name">
+      <input type="text" class="span10" placeholder="Name" name="Name" ng-model="workItem.name" required autofocus>
+    </cs:labeled-control>
+
+    <cs:labeled-control label="Description">
+      <textarea id="description" class="span10" name="Description"
+        placeholder="Description of work item (Optional)"
+        ng-model="workItem.description" rows="5"></textarea>
+    </cs:labeled-control>
+
+    <cs:labeled-control label="Users">
+      <!-- <cs:popout-selector class="span10"
+        key="id"
+        name="Users"
+        select-ng-options="u | userName for u in users.all track by u.id"
+        ng-model="users.selected"
+        initial-value="initialUsers"
+        label-fail-text="Inactive"
+        label-fail-condition="!isActive"
+        placeholder="Select the users who are authorised to work on this work item"
+        add-tooltip="User authorisation will be added to this work item."
+        remove-tooltip="User authorisation will be removed from this work item.">
+      </cs:popout-selector> -->
+    </cs:labeled-control>
+  </fieldset>
+
+  <fieldset id="defaultScope">
+    <legend>Default scope</legend>
+
+    <div class="loading-overlay">
+      <cs:labeled-control label="Product Range">
+        <select ngyn-select2="{ allowClear: true }"
+          name="ProductRange"
+          ng-model="workItem.productRangeCode"
+          ng-change="onProductRangeChanged()"
+          ng-options="pr.code as $filter('entityText')( pr ) for pr in productRanges"
+          placeholder="Select a product range (Optional)"
+          class="span10">
+          <option value="">Select a product range (Optional)</option>
+        </select>
+      </cs:labeled-control>
+
+      <div>
+
+        <cs:labeled-control label="Brochure Model Derivatives">
+          <select ngyn-select2 ng-disabled="!workItem.productRangeCode"
+            class="span10"
+            name="BrochureModelDerivatives"
+            multiple
+            ng-options="b.name group by $filter( 'entityText' )( b.brochureModel ) for b in bmDerivatives track by b.id"
+            ng-model="workItem.brochureModelDerivatives"
+            data-placeholder="Select Brochure Model Derivatives (Optional)"></select>
+        </cs:labeled-control>
+
+        <cs:labeled-control label="Effectivity Range">
+          <event-range-picker ng-model="effectivity.selected"
+            disable="!workItem.productRangeCode"
+            events="effectivity.events"
+            start-property="start"
+            end-property="end"
+            class="controls-row span10">
+            <start-picker class="span6" track-by-property="id"></start-picker>
+            <end-picker class="span6" track-by-property="id"></end-picker>
+            <br>
+            <allow-past label="Show past Events"></allow-past>
+          </event-range-picker>
+        </cs:labeled-control>
+
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset ng-if="referenceTypes.length">
+    <legend>References</legend>
+
+    <cs:labeled-control label="{{ reference.name }}" ng-repeat="reference in referenceTypes" for="reference_{{ reference.id }}_id">
+      <input type="text"
+        placeholder="(Optional)"
+        ng-model="reference.value"
+        class="span10"
+        name="reference_{{ reference.id }}"
+        id="reference_{{ reference.id }}_id">
+    </cs:labeled-control>
+  </fieldset>
+
+  <div class="form-actions">
+    <save-button ngyn-form-save="createAndStart()"
+      text="Create & Start New Work Item"
+      ng-if="security.canPerform( 'CreateWorkItems', true )">
+    </save-button>
+
+    <save-button ngyn-form-save="create()"
+      text="Create New Work Item"
+      button-class="btn-wide"
+      ng-if="security.canPerform( 'CreateWorkItems', true )">
+    </save-button>
+
+    <cancel-button action="ngynRoute.gotoAction( 'index' )"></cancel-button>
+  </div>
+</form>
