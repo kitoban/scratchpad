@@ -4,7 +4,6 @@
   angular.module( 'ace' ).controller( 'WorkItems.NewController', workItemsNewController );
 
   function workItemsNewController( $scope ) {
-    console.log( 'WorkItems.NewController' );
     $scope.initialised = false;
 
     $scope.creating = false;

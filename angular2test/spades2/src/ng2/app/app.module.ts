@@ -47,7 +47,7 @@ angular.module('ace').factory(
     ],
     {
       useHash: false,
-      enableTracing: true
+      enableTracing: false
     }
     )
   ],
