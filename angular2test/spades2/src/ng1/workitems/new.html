@@ -1,10 +1,10 @@
 ﻿<form class="form-horizontal row-fluid" name="form" ng-controller="WorkItems.NewController">
   <!-- <cs:entity-form-title-bar entity="workItem" name="Work Item"></cs:entity-form-title-bar>
   <cs:validation-summary></cs:validation-summary> -->
-
+  {{body.VAR1}}
   <fieldset>
     <cs:labeled-control label="Name">
-      <input type="text" class="span10" placeholder="Name" name="Name" ng-model="workItem.name" required autofocus>
+      <input type="text" class="span10" placeholder="Name" name="Name" ng-model="body.VAR1" required autofocus>
     </cs:labeled-control>
 
     <cs:labeled-control label="Description">

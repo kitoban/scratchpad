@@ -4,8 +4,9 @@ angular.
   module( 'ace' ).
   component( 'workItemList', {
     templateUrl: 'ng1/work-item-list/work-item-list.template.html',
-    controller: ['WorkItems', '$scope', '$location',
-      function WorkItemListController( WorkItems, $scope, $location ) {
+    controller: ['WorkItems', '$scope', '$location','bodyService',
+      function WorkItemListController( WorkItems, $scope, $location, bodyService ) {
+        this.body = bodyService;
         this.workItems = WorkItems.query();
 
         this.isAssignedTo = workItem => {

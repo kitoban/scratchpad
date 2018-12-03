@@ -1,20 +1,18 @@
-import { Component, Inject } from '@angular/core';
-import { UpgradeModule } from "@angular/upgrade/static";
+import { Component, OnInit } from '@angular/core';
+import { UpgradeModule } from '@angular/upgrade/static';
+import { BodyService } from './body.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
-   phones: any[] = [];
+  constructor(private upgrade: UpgradeModule, private bodyService: BodyService) { }
 
-
-   constructor(private upgrade: UpgradeModule) { }
-
-    ngOnInit() {
-      this.upgrade.bootstrap(document.body, ['ace']);
-    }
+  ngOnInit() {
+    this.upgrade.bootstrap(document.body, ['ace']);
+  }
 }

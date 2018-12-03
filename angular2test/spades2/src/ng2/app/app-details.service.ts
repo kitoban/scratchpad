@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AppDetailsService {
-  
+
   constructor() { }
 
   public getData(): any {

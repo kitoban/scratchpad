@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, InjectionToken } from '@angular/core';
 import { RouterModule, UrlHandlingStrategy } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { AppDetailsService } from './app-details.service';
 import { AngularRouterHookService } from './AngularRouterHook.service'
 import { AppPageFooterComponent } from './app.page.footer';
 import { EmptyComponent } from './empty.component'
+import { BodyService } from './body.service';
 
 declare var angular: any;
 
@@ -28,6 +29,11 @@ angular.module('ace').directive(
 angular.module('ace').factory(
   'angularRouterHook',
   downgradeInjectable(AngularRouterHookService)
+);
+
+angular.module('ace').factory(
+  'bodyService',
+  downgradeInjectable(BodyService)
 );
 
 @NgModule({
@@ -56,8 +62,9 @@ angular.module('ace').factory(
   ],
   providers: [
     AppDetailsService,
-    AngularRouterHookService
-    //{ provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy }
+    AngularRouterHookService,
+    Title,
+    BodyService
   ],
   bootstrap: [AppComponent]
 })
