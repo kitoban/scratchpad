@@ -17,25 +17,28 @@ module.exports = smp.wrap({
   entry: {
     bundle: './build/app.ts' // must be single entry for single page app, or we'll get multiple copies of dependancies (i.e. Angular/React)
   },
-  optimization: {
-    splitChunks: {
-      // filtering all node_module dependancies to their own file
-      cacheGroups: {
-        default: false,
-        vendors: false,
-        vendor: {
-          chunks: 'all',
-          test: /node_modules/,
-          priority: -10
-        }
-      }
-    }
-  },
+  //optimization: {
+  //  splitChunks: {
+  //    // filtering all node_module dependancies to their own file
+  //    cacheGroups: {
+  //      default: false,
+  //      vendors: false,
+  //      vendor: {
+  //        chunks: 'all',
+  //        test: /node_modules/,
+  //        priority: -10
+  //      }
+  //    }
+  //  }
+  //},
   output: {
     path: outputPath,
     // Adding a chunkhash is an option for cache busting, however need to solve how this gets into the cshtml file: filename: '[name].[chunkhash].js',
     filename: '[name].js',
     chunkFilename: '[name].js'
+  },
+  optimization: {
+    runtimeChunk: 'single'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
@@ -114,23 +117,8 @@ module.exports = smp.wrap({
         } )
       },
       {
-        // style processing
         test: /\.css$/,
-        include: /monaco/,
-        use: MonacoExtractText.extract( {
-
-          fallback: 'style-loader',
-          use: ['css-loader']
-          //use: [
-          //  {
-          //    loader: 'css-loader',
-          //    options: {
-          //      modules: true,
-          //      localIdentName: '[local]',
-          //      importLoaders: 1
-          //    }
-          //  }]
-        } )
+        use: ['style-loader', 'css-loader']
       },
       {
         // Font processing

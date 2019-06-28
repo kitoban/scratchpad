@@ -1,29 +1,30 @@
-_ReSharper.*
-_TeamCity.*
-*.suo
-*.cache
-*.Cache
+
 *.user
-*.rsuser
-*.orig
-*.tmp
-*.svclog
-*.pdb
-*__.g
-*.tokens
-*.sln.ide
-*.log
-*.csdat
 .vs/
-.vscode/
 obj/
 bin/
-log/*
 packages/
-packages-build/
-contrib/packages/
-testresults/
-coverage/
 node_modules/
 Client-Release/
 *.js.map
+
+# *.rsuser
+# *.orig
+# *.tmp
+# *.svclog
+# *.pdb
+# *__.g
+# *.tokens
+# *.sln.ide
+# *.log
+# *.csdat
+# packages-build/
+# contrib/packages/
+# testresults/
+# coverage/
+# log/*
+# .vscode/# _ReSharper.*
+# _TeamCity.*
+# *.suo
+# *.cache
+# *.Cache

@@ -1,21 +1,20 @@
-﻿import * as monaco from 'monaco-editor';
-
-var editor = monaco.editor.create( document.getElementById( 'container' ), {
-  value: [
-    'function x() {',
-    '\tconsole.log("Hello world!");',
-    '}'
-  ].join( '\n' ),
-  language: 'javascript'
-} );
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var monaco = require("monaco-editor");
+var editor = monaco.editor.create(document.getElementById('container'), {
+    value: [
+        'function x() {',
+        '\tconsole.log("Hello world!");',
+        '}'
+    ].join('\n'),
+    language: 'javascript'
+});
 //monaco.languages.register( {
 //  id: 'json',
 //  extensions: ['.json', '.bowerrc', '.jshintrc', '.jscsrc', '.eslintrc', '.babelrc'],
 //  aliases: ['JSON', 'json'],
 //  mimetypes: ['application/json'],
 //} );
-
 //function createLanguageClient( connection ) {
 //  return new BaseLanguageClient( {
 //    name: "Sample Language Client",
@@ -37,7 +36,6 @@ var editor = monaco.editor.create( document.getElementById( 'container' ), {
 //    }
 //  } )
 //}
-
 //// create the web socket
 //const url = createUrl( '/sampleServer' )
 //const webSocket = createWebSocket( url );
@@ -51,3 +49,4 @@ var editor = monaco.editor.create( document.getElementById( 'container' ), {
 //    connection.onClose( () => disposable.dispose() );
 //  }
 //} );
+//# sourceMappingURL=app.js.map

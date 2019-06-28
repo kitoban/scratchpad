@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
   </div>
   <div class="container body-content">
     @RenderBody()
-    <footer>
-    </footer>
+    <footer></footer>
   </div>
 
   @Scripts.Render( "~/Client-Release/jquery.js" )
   @Scripts.Render( "~/Client-Release/jquery.signalR.js" )
   @Scripts.Render( "~/Client-Release/bundle.js" )
-
+  @Styles.Render( "~/Client-Release/core.css" )
+  @Styles.Render( "~/Client-Release/monaco.css" )
   @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")*@
   @RenderSection( "scripts", required: false )
