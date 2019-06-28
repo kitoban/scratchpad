@@ -8,19 +8,19 @@
     @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-  </div>
   <div class="container body-content">
     @RenderBody()
     <footer></footer>
   </div>
 
-  @Scripts.Render( "~/Client-Release/jquery.js" )
-  @Scripts.Render( "~/Client-Release/jquery.signalR.js" )
+  @*@Scripts.Render( "~/Client-Release/jquery.js" )
+  @Scripts.Render( "~/Client-Release/jquery.signalR.js" )*@
   @Scripts.Render( "~/Client-Release/bundle.js" )
+@*@Scripts.Render( "~/Client-Release/editor.worker.js" )
   @Styles.Render( "~/Client-Release/core.css" )
-  @Styles.Render( "~/Client-Release/monaco.css" )
+  @Styles.Render( "~/Client-Release/monaco.css" )*@
   @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")*@
-  @RenderSection( "scripts", required: false )
+    @Scripts.Render("~/bundles/bootstrap")
+  @RenderSection( "scripts", required: false )*@
 </body>
 </html>

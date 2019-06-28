@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var monaco = require("monaco-editor");
+console.log('anything?');
 var editor = monaco.editor.create(document.getElementById('container'), {
     value: [
         'function x() {',

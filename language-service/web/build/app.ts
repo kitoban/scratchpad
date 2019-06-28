@@ -1,5 +1,7 @@
 ﻿import * as monaco from 'monaco-editor';
 
+console.log('anything?');
+
 var editor = monaco.editor.create( document.getElementById( 'container' ), {
   value: [
     'function x() {',
