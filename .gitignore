@@ -25,3 +25,5 @@ contrib/packages/
 testresults/
 coverage/
 node_modules/
+Client-Release/
+*.js.map

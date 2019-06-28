@@ -4,7 +4,8 @@ const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const CopyPlugin = require( 'copy-webpack-plugin' );
 
-var CssExtractText = new ExtractTextPlugin( 'ace.css', { allChunks: true } );
+var MonacoExtractText = new ExtractTextPlugin( 'monaco.css', { allChunks: true } );
+var LessExtractText = new ExtractTextPlugin( 'core.css', { allChunks: true } );
 
 const SpeedMeasurePlugin = require( "speed-measure-webpack-plugin" );
 const smp = new SpeedMeasurePlugin();
@@ -91,7 +92,7 @@ module.exports = smp.wrap({
         // style processing
         test: /\.less$/,
         exclude: /node_modules/,
-        use: CssExtractText.extract( {
+        use: LessExtractText.extract( {
           fallback: 'style-loader',
           use: [
             {
@@ -110,6 +111,25 @@ module.exports = smp.wrap({
               }
             }
           ]
+        } )
+      },
+      {
+        // style processing
+        test: /\.css$/,
+        include: /monaco/,
+        use: MonacoExtractText.extract( {
+
+          fallback: 'style-loader',
+          use: ['css-loader']
+          //use: [
+          //  {
+          //    loader: 'css-loader',
+          //    options: {
+          //      modules: true,
+          //      localIdentName: '[local]',
+          //      importLoaders: 1
+          //    }
+          //  }]
         } )
       },
       {
@@ -147,7 +167,8 @@ module.exports = smp.wrap({
     ]
   },
   plugins: [
-    CssExtractText,
+    MonacoExtractText,
+    LessExtractText,
     new webpack.ProvidePlugin( {
     } ),
     new CopyPlugin( [
